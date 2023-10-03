@@ -42,7 +42,7 @@ namespace LiteBulb.Algorithms.Application.Services.NthLargestElement
 
                 indexOfMinValue = GetIndexOfMinValue(list);
 
-                // If this value is large than the smallest value in the list
+                // If this value is larger than the smallest value in the list
                 if (element.Value > list[indexOfMinValue].Value)
                 {
                     // Replace the value at the index of the smallest value
