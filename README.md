@@ -4,7 +4,7 @@
 
 This project demostrates an algorithm written in C# to find the nth largest item in a collection.  Multiple variations of the algorithm were created and benchmarked to find the optimal algorithm.
 
-*(However, I don't think any of these algorithms are optimal, but I didn't look up the correct solution.  I just tried to think of different solutions and benchmarked them for experimentation.)*
+_(However, I don't think any of these algorithms are optimal, but I didn't look up the correct solution.  I just tried to think of different solutions and benchmarked them for experimentation.)_
 
 # Problem Statement
 
@@ -12,21 +12,37 @@ Using your strongest coding language, please send back a code method that return
 
 Tips:
 
-*You do not need to implement a sorting algorithm. We encourage you to consider other designs that might be more optimal than sorting, if any. Also, if there are any tradeoffs, please document that in your code.*
+_You do not need to implement a sorting algorithm. We encourage you to consider other designs that might be more optimal than sorting, if any. Also, if there are any tradeoffs, please document that in your code._
 
-# Components
+# Modules
 
-The solution is comprised of 4 client components:
+The solution is comprised of 4 main projects and 2 test projects:
 1. Algorithms ClientApp is a Console application that hosts BenchmarkDotNet to benchmark different versions of the algorithm.
 2. Algorithms Application contains concrete implementations for different versions of the algorithm.
 3. Algorithms Data contains test data as well as extension methods to use on collections.
 4. Algorithms Domain is where the models are (POCOs).
-4. Algorithms Application Tests is a set of unit tests for the Application project.
-4. Algorithms Data Tests is a set of unit tests for the Data project.
+5. Algorithms Application Tests is a set of unit tests for the Application project.
+6. Algorithms Data Tests is a set of unit tests for the Data project.
+
+# Project Structure
+
+```
+src\
+
+    LiteBulb.Algorithms.Application (Logic for different algorithms)
+    LiteBulb.Algorithms.ClientApp (Console application)
+    LiteBulb.Algorithms.Data (Extension methods)
+	LiteBulb.Algorithms.Domain (Models)
+
+test\
+
+    LiteBulb.Algorithms.Application.Tests (Unit tests)
+	LiteBulb.Algorithms.Data.Tests (Unit tests)
+```
 
 # Tech Stack
 
-1. .NET 7.0 (Console application and libraries)
+1. .NET 7.0 (for Console application and libraries)
 2. BenchmarkDotNet (for benchmarking)
 3. MSTest2 (for unit & integration testing)
 
@@ -46,13 +62,13 @@ _Note: no .NET Standard 2.1 or .NET Standard 2.0._
 | SortedDictionaryStrategy    | 112.49 us | 2.248 us | 6.038 us | 110.51 us |    5 | 18.0664 |   28360 B |
 | SortedLinkedListStrategy    | 488.23 us | 5.648 us | 5.007 us | 488.08 us |    6 |  9.7656 |   16048 B |
 
-Note: QueueStrategy and StackStrategy don't pass the unit test.
+Note: `QueueStrategy` and `StackStrategy` do not properly work and they do not pass the unit tests.
 
 # Code
 
-**UnsortedArrayStrategy.cs**
+```UnsortedArrayStrategy.cs```
 
-```
+```csharp
 public class UnsortedArrayStrategy<T> : IStrategy<T> where T : IHasValue, new()
 {
     public UnsortedArrayStrategy()
@@ -127,22 +143,6 @@ public class UnsortedArrayStrategy<T> : IStrategy<T> where T : IHasValue, new()
 }
 ```
 
-# Project Structure
-
-```csharp
-src\
-
-    LiteBulb.Algorithms.Application (Logic for different algorithm versions)
-    LiteBulb.Algorithms.ClientApp (Console application)
-    LiteBulb.Algorithms.Data (Extension methods)
-	LiteBulb.Algorithms.Domain (Models)
-
-test\
-
-    LiteBulb.Algorithms.Application.Tests (Unit tests)
-	LiteBulb.Algorithms.Data.Tests (Unit tests)
-```
-
 # Screenshots
 
 ![Console application screenshot](docs/benchmarks-screenshot.png)
@@ -162,9 +162,7 @@ _Note: See below for links to code repositories._
 
 [Powerful .NET library for benchmarking](https://github.com/dotnet/BenchmarkDotNet)
 
-# Contribute
-
-- [Algorithms Repository](https://github.com/MrJohnB/Algorithms)
+# References
 
 If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
 - [ASP.NET Core](https://github.com/aspnet/Home)
