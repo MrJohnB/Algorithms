@@ -32,12 +32,12 @@ src\
     LiteBulb.Algorithms.Application (Logic for different algorithms)
     LiteBulb.Algorithms.ClientApp (Console application)
     LiteBulb.Algorithms.Data (Extension methods)
-	LiteBulb.Algorithms.Domain (Models)
+    LiteBulb.Algorithms.Domain (Models)
 
 test\
 
     LiteBulb.Algorithms.Application.Tests (Unit tests)
-	LiteBulb.Algorithms.Data.Tests (Unit tests)
+    LiteBulb.Algorithms.Data.Tests (Unit tests)
 ```
 
 # Tech Stack
